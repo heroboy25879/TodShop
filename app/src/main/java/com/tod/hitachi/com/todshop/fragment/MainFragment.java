@@ -1,5 +1,6 @@
 package com.tod.hitachi.com.todshop.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.tod.hitachi.com.todshop.R;
+import com.tod.hitachi.com.todshop.ServiceActivity;
 import com.tod.hitachi.com.todshop.Utility.GetAllData;
 import com.tod.hitachi.com.todshop.Utility.MasterAlert;
 import com.tod.hitachi.com.todshop.Utility.MasterConstant;
@@ -84,6 +86,13 @@ public class MainFragment extends Fragment{
                             // Pass true
                             Log.d("6JuneV1" ,"Pass true");
                             Toast.makeText(getActivity(),"Welcome" + nameString,Toast.LENGTH_SHORT).show();
+
+//                            Intent to Service Activity
+                            Intent intent = new Intent(getActivity(), ServiceActivity.class);
+                            intent.putExtra("NameUser",nameString);
+                            startActivity(intent);
+
+                            getActivity().finish(); // ปิดหน้าเดิม
                         } else {
                             // Password False
                             Log.d("6JuneV1","Pass false");
