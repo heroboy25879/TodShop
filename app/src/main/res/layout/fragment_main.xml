@@ -19,64 +19,70 @@
 
         <!--User-->
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
             <!--Icon-->
             <ImageView
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/ic_action_user"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_action_user" />
 
 
             <!--TxtField-->
             <EditText
-                android:hint="User :"
+                android:id="@+id/edtUser"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text"/>
+                android:hint="User :"
+                android:inputType="text" />
         </LinearLayout>
 
         <!--Password-->
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
             <!--Icon-->
             <ImageView
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/ic_action_password"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_action_password" />
 
 
             <!--TxtField-->
             <EditText
-                android:hint="Password :"
+                android:id="@+id/edtPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword"/>
-        </LinearLayout>text
+                android:hint="Password :"
+                android:inputType="textPassword" />
+        </LinearLayout>
+        text
 
         <!--Login-->
         <Button
-            android:text="Login"
+            android:id="@+id/btnLogin"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="Login" />
 
         <!--Register-->
         <TextView
-            android:layout_marginTop="16dp"
-            android:gravity="center_horizontal"
-            android:textColor="@color/colorAccent"
-            android:textStyle="italic"
-            android:textSize="@dimen/h2"
-            android:text="New Register"
+            android:id="@+id/txtRegister"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:clickable="true"
+            android:gravity="center_horizontal"
+            android:text="New Register"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/h2"
+            android:textStyle="italic" />
 
     </LinearLayout>
 
