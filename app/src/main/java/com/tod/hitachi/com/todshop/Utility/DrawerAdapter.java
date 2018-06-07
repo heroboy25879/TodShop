@@ -40,7 +40,7 @@ public class DrawerAdapter extends BaseAdapter{
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = layoutInflater.inflate(R.layout.fragment_list_drawer,parent,false);
+        View view = layoutInflater.inflate(R.layout.listview_drawer,parent,false);
 
         ImageView imageView = view.findViewById(R.id.imgIcon);
         imageView.setImageResource(iconInts[position]);
