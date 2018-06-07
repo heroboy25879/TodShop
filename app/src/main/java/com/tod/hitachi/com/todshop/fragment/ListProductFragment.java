@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.tod.hitachi.com.todshop.R;
@@ -41,10 +42,10 @@ public class ListProductFragment extends Fragment{
             Log.d("7JuneV1","JSON ==>" + jsonString);
 
             JSONArray jsonArray =new JSONArray(jsonString);
-            String[] nameStrings = new  String[jsonArray.length()];
-            String[] priceStrings = new  String[jsonArray.length()];
-            String[] detailStrings = new  String[jsonArray.length()];
-            String[] photo = new  String[jsonArray.length()];
+            final String[] nameStrings = new  String[jsonArray.length()];
+            final String[] priceStrings = new  String[jsonArray.length()];
+            final String[] detailStrings = new  String[jsonArray.length()];
+            final String[] photo = new  String[jsonArray.length()];
 
             for (int i=0 ; i<jsonArray.length();i++)
             {
@@ -59,6 +60,28 @@ public class ListProductFragment extends Fragment{
 
             ProductAdapter productAdapter = new ProductAdapter(getActivity(),nameStrings,priceStrings,detailStrings,photo);
             listView.setAdapter(productAdapter);
+
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                getActivity()
+                        .getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.contentServiceFragment,
+                                DetailFragment.detailInstance(nameStrings[position],
+                                        priceStrings[position],
+                                        detailStrings[position],
+                                        photo[position]))
+                        .addToBackStack(null)
+                        .commit();
+
+
+
+                }
+            });
+
+
         } catch (Exception e) {
             e.printStackTrace();
         }

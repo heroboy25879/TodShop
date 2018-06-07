@@ -9,7 +9,10 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.ListView;
 
+import com.tod.hitachi.com.todshop.Utility.DrawerAdapter;
+import com.tod.hitachi.com.todshop.Utility.MasterConstant;
 import com.tod.hitachi.com.todshop.fragment.ListProductFragment;
 
 public class ServiceActivity extends AppCompatActivity {
@@ -25,22 +28,46 @@ public class ServiceActivity extends AppCompatActivity {
         setContentView(R.layout.activity_service);
 
         //รับค่า จากหน้าก่อนหน้า รับชื่อผู้ใช้งานเข้ามา
-        nameUserSting = getIntent().getStringExtra("NameUser");
-        Log.d("7JuneV1","name user ==>"+ nameUserSting );
+        ReveiceFromMain();
 
 //        Create Toolbar
         createToolbar();
 
 //        Add Fragment to Activity
+        addFragment(savedInstanceState);
+
+
+//        create Listview
+        createListview();
+
+    }// Main Method
+
+    private void createListview() {
+        ListView listView = findViewById(R.id.listViewDrawer);
+        MasterConstant masterConstant = new MasterConstant();
+
+        DrawerAdapter drawerAdapter = new DrawerAdapter(ServiceActivity.this,
+                masterConstant.getIconInts(),
+                masterConstant.getTitleStrings());
+
+        listView.setAdapter(drawerAdapter);
+
+
+    }
+
+    private void addFragment(Bundle savedInstanceState) {
         if (savedInstanceState == null) {
             getSupportFragmentManager()
                     .beginTransaction()
                     .add(R.id.contentServiceFragment,new ListProductFragment())
                     .commit();
         }
+    }
 
-
-    }// Main Method
+    private void ReveiceFromMain() {
+        nameUserSting = getIntent().getStringExtra("NameUser");
+        Log.d("7JuneV1","name user ==>"+ nameUserSting );
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
