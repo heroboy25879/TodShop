@@ -3,4 +3,5 @@
     <dimen name="my_margin">50dp</dimen>
     <dimen name="h2">18sp</dimen>
     <dimen name="h1">20sp</dimen>
+    <dimen name="height_listview">200dp</dimen>
 </resources>

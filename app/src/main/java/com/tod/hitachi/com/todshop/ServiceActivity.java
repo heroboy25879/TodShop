@@ -10,6 +10,8 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 
+import com.tod.hitachi.com.todshop.fragment.ListProductFragment;
+
 public class ServiceActivity extends AppCompatActivity {
 
     private  String nameUserSting;
@@ -28,6 +30,15 @@ public class ServiceActivity extends AppCompatActivity {
 
 //        Create Toolbar
         createToolbar();
+
+//        Add Fragment to Activity
+        if (savedInstanceState == null) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .add(R.id.contentServiceFragment,new ListProductFragment())
+                    .commit();
+        }
+
 
     }// Main Method
 
